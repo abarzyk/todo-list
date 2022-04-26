@@ -2,8 +2,12 @@ const path = require('path')
 const express = require('express')
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const Task = require('./Task')
 
 const app = express()
+
+mongoose.connect('mongodb://localhost/todo-list')
 
 app.use(express.static(path.join(__dirname, 'public')))
 
